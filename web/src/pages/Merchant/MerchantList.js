@@ -4,16 +4,16 @@ import { Row, Col, Card, Form, Input, Button, Table, Modal, Badge, Select } from
 import PageHeaderLayout from '@/layouts/PageHeaderLayout';
 import PButton from '@/components/PermButton';
 import { formatDate } from '@/utils/utils';
-import ProductCard from './ProductCard';
+import MerchantCard from './MerchantCard';
 
-import styles from './ProductList.less';
+import styles from './MerchantList.less';
 
 @connect(state => ({
-  loading: state.loading.models.product,
-  product: state.product,
+  loading: state.loading.models.merchant,
+  merchant: state.merchant,
 }))
 @Form.create()
-class ProductList extends PureComponent {
+class MerchantList extends PureComponent {
   state = {
     selectedRowKeys: [],
     selectedRows: [],
@@ -21,7 +21,7 @@ class ProductList extends PureComponent {
 
   componentDidMount() {
     this.dispatch({
-      type: 'product/fetch',
+      type: 'merchant/fetch',
       search: {},
       pagination: {},
     });
@@ -29,21 +29,21 @@ class ProductList extends PureComponent {
 
   onItemDisableClick = item => {
     this.dispatch({
-      type: 'product/changeStatus',
+      type: 'merchant/changeStatus',
       payload: { record_id: item.record_id, status: 2 },
     });
   };
 
   onItemEnableClick = item => {
     this.dispatch({
-      type: 'product/changeStatus',
+      type: 'merchant/changeStatus',
       payload: { record_id: item.record_id, status: 1 },
     });
   };
 
   onItemEditClick = item => {
     this.dispatch({
-      type: 'product/loadForm',
+      type: 'merchant/loadForm',
       payload: {
         type: 'E',
         id: item.record_id,
@@ -53,7 +53,7 @@ class ProductList extends PureComponent {
 
   onAddClick = () => {
     this.dispatch({
-      type: 'product/loadForm',
+      type: 'merchant/loadForm',
       payload: {
         type: 'A',
       },
@@ -62,7 +62,7 @@ class ProductList extends PureComponent {
 
   onDelOKClick(id) {
     this.dispatch({
-      type: 'product/del',
+      type: 'merchant/del',
       payload: { record_id: id },
     });
     this.clearSelectRows();
@@ -95,7 +95,7 @@ class ProductList extends PureComponent {
 
   onTableChange = pagination => {
     this.dispatch({
-      type: 'product/fetch',
+      type: 'merchant/fetch',
       pagination: {
         current: pagination.current,
         pageSize: pagination.pageSize,
@@ -108,7 +108,7 @@ class ProductList extends PureComponent {
     const { form } = this.props;
     form.resetFields();
     this.dispatch({
-      type: 'product/fetch',
+      type: 'merchant/fetch',
       search: {},
       pagination: {},
     });
@@ -124,7 +124,7 @@ class ProductList extends PureComponent {
         return;
       }
       this.dispatch({
-        type: 'product/fetch',
+        type: 'merchant/fetch',
         search: values,
         pagination: {},
       });
@@ -134,7 +134,7 @@ class ProductList extends PureComponent {
 
   onDataFormSubmit = data => {
     this.dispatch({
-      type: 'product/submit',
+      type: 'merchant/submit',
       payload: data,
     });
     this.clearSelectRows();
@@ -142,7 +142,7 @@ class ProductList extends PureComponent {
 
   onDataFormCancel = () => {
     this.dispatch({
-      type: 'product/changeFormVisible',
+      type: 'merchant/changeFormVisible',
       payload: false,
     });
   };
@@ -153,7 +153,7 @@ class ProductList extends PureComponent {
   };
 
   renderDataForm() {
-    return <ProductCard onCancel={this.onDataFormCancel} onSubmit={this.onDataFormSubmit} />;
+    return <MerchantCard onCancel={this.onDataFormCancel} onSubmit={this.onDataFormSubmit} />;
   }
 
   renderSearchForm() {
@@ -201,7 +201,7 @@ class ProductList extends PureComponent {
   render() {
     const {
       loading,
-      product: {
+      merchant: {
         data: { list, pagination },
       },
     } = this.props;
@@ -245,7 +245,7 @@ class ProductList extends PureComponent {
       ...pagination,
     };
 
-    const breadcrumbList = [{ title: '演示用例' }, { title: '基础示例', href: '/product/list' }];
+    const breadcrumbList = [{ title: '演示用例' }, { title: '基础示例', href: '/merchant/list' }];
 
     return (
       <PageHeaderLayout title="基础示例" breadcrumbList={breadcrumbList}>
@@ -320,4 +320,4 @@ class ProductList extends PureComponent {
   }
 }
 
-export default ProductList;
+export default MerchantList;

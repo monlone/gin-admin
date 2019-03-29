@@ -1,7 +1,7 @@
 import { stringify } from 'qs';
 import request from '../utils/request';
 
-const router = 'product';
+const router = 'merchant';
 
 export async function query(params) {
   return request(`/v1/${router}?${stringify(params)}`);

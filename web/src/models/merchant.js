@@ -1,8 +1,8 @@
 import { message } from 'antd';
-import * as productService from '@/services/product';
+import * as productService from '@/services/merchant';
 
 export default {
-  namespace: 'product',
+  namespace: 'merchant',
   state: {
     search: {},
     pagination: {},

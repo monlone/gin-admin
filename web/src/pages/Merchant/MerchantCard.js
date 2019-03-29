@@ -3,10 +3,10 @@ import { connect } from 'dva';
 import { Form, Input, Modal, Radio } from 'antd';
 
 @connect(state => ({
-  product: state.product,
+  merchant: state.merchant,
 }))
 @Form.create()
-class ProductCard extends PureComponent {
+class MerchantCard extends PureComponent {
   onOKClick = () => {
     const { form, onSubmit } = this.props;
 
@@ -27,7 +27,7 @@ class ProductCard extends PureComponent {
   render() {
     const {
       onCancel,
-      product: { formTitle, formVisible, formData, submitting },
+      merchant: { formTitle, formVisible, formData, submitting },
       form: { getFieldDecorator },
     } = this.props;
 
@@ -99,4 +99,4 @@ class ProductCard extends PureComponent {
   }
 }
 
-export default ProductCard;
+export default MerchantCard;
