@@ -1,4 +1,4 @@
-module github.com/LyricTian/gin-admin
+module github.com/goodcorn
 
 require (
 	github.com/LyricTian/captcha v0.0.0-20181226014250-f98c07094903

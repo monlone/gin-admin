@@ -3,11 +3,11 @@ package bll
 import (
 	"context"
 
-	gcontext "github.com/LyricTian/gin-admin/src/context"
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/model"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/util"
+	gcontext "github.com/goodcorn/src/context"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/model"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/util"
 )
 
 // 定义错误

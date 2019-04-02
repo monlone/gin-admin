@@ -18,6 +18,10 @@ export default [
         routes: [{ path: '/example/demo', component: './Demo/DemoList' }],
       },
       {
+        path: '/merchant',
+        routes: [{ path: '/merchant/list', component: './Merchant/MerchantList' }],
+      },
+      {
         path: '/system',
         routes: [
           { path: '/system/menu', component: './Menu/MenuList' },

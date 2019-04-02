@@ -13,7 +13,7 @@ package web
 
 import (
 	// 控制器
-	_ "github.com/LyricTian/gin-admin/src/web/ctl"
+	_ "github.com/goodcorn/src/web/ctl"
 )
 
 // @Version 2.0.0

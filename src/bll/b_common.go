@@ -3,8 +3,8 @@ package bll
 import (
 	"context"
 
-	gcontext "github.com/LyricTian/gin-admin/src/context"
-	"github.com/LyricTian/gin-admin/src/model"
+	gcontext "github.com/goodcorn/src/context"
+	"github.com/goodcorn/src/model"
 )
 
 // TransFunc 定义事务执行函数

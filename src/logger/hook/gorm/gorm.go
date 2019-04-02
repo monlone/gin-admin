@@ -3,8 +3,8 @@ package gorm
 import (
 	"time"
 
-	"github.com/LyricTian/gin-admin/src/logger"
-	"github.com/LyricTian/gin-admin/src/util"
+	"github.com/goodcorn/src/logger"
+	"github.com/goodcorn/src/util"
 	"github.com/jinzhu/gorm"
 	"github.com/sirupsen/logrus"
 )

@@ -1,9 +1,9 @@
 package middleware
 
 import (
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/logger"
-	"github.com/LyricTian/gin-admin/src/web/context"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/logger"
+	"github.com/goodcorn/src/web/context"
 	"github.com/casbin/casbin"
 	"github.com/gin-gonic/gin"
 )

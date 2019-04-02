@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/logger"
-	"github.com/LyricTian/gin-admin/src/model/gorm/entity"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/logger"
+	"github.com/goodcorn/src/model/gorm/entity"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/service/gormplus"
 )
 
 // User 用户存储

@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/service/gormplus"
 )
 
 // GetRoleDB 获取角色存储

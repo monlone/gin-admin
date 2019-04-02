@@ -5,12 +5,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/model"
-	"github.com/LyricTian/gin-admin/src/model/gorm/entity"
-	gormmodel "github.com/LyricTian/gin-admin/src/model/gorm/model"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/model"
+	"github.com/goodcorn/src/model/gorm/entity"
+	gormmodel "github.com/goodcorn/src/model/gorm/model"
+	"github.com/goodcorn/src/service/gormplus"
 	"github.com/facebookgo/inject"
 )
 

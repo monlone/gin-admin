@@ -3,7 +3,7 @@ package model
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/src/schema"
+	"github.com/goodcorn/src/schema"
 )
 
 // IMenu 菜单管理存储接口

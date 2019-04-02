@@ -9,12 +9,12 @@ import (
 	"sync/atomic"
 	"syscall"
 
-	"github.com/LyricTian/gin-admin/src"
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/logger"
-	loggerhook "github.com/LyricTian/gin-admin/src/logger/hook"
-	loggergormhook "github.com/LyricTian/gin-admin/src/logger/hook/gorm"
-	"github.com/LyricTian/gin-admin/src/util"
+	"github.com/goodcorn/src"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/logger"
+	loggerhook "github.com/goodcorn/src/logger/hook"
+	loggergormhook "github.com/goodcorn/src/logger/hook/gorm"
+	"github.com/goodcorn/src/util"
 	"github.com/spf13/viper"
 )
 

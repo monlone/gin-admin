@@ -3,9 +3,9 @@ package model
 import (
 	"context"
 
-	gcontext "github.com/LyricTian/gin-admin/src/context"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
+	gcontext "github.com/goodcorn/src/context"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/service/gormplus"
 	"github.com/jinzhu/gorm"
 )
 
