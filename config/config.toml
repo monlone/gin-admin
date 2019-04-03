@@ -47,7 +47,7 @@ max_open_conns = 1
 # 设置空闲连接池中的最大连接数
 max_idle_conns = 1
 # 数据库表名
-table = "g_logger"
+table = "logger"
 
 # http配置
 [http]
@@ -152,7 +152,7 @@ max_open_conns = 150
 # 设置空闲连接池中的最大连接数
 max_idle_conns = 50
 # 数据库表名前缀
-table_prefix = "g_"
+table_prefix = ""
 
 # mysql数据库配置
 [mysql]
