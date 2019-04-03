@@ -4,22 +4,23 @@ import (
 	"context"
 	"sync"
 
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/model"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/util"
 	"github.com/casbin/casbin"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/model"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/util"
 )
 
 // User 用户管理
 type User struct {
-	UserModel model.IUser      `inject:"IUser"`
-	RoleModel model.IRole      `inject:"IRole"`
-	Enforcer  *casbin.Enforcer `inject:""`
-	CommonBll *Common          `inject:""`
-	rootUser  *schema.User
-	rootOnce  sync.Once
+	UserModel     model.IUser      `inject:"IUser"`
+	RoleModel     model.IRole      `inject:"IRole"`
+	MerchantModel model.IMerchant  `inject:"IMerchant"`
+	Enforcer      *casbin.Enforcer `inject:""`
+	CommonBll     *Common          `inject:""`
+	rootUser      *schema.User
+	rootOnce      sync.Once
 }
 
 // LoadRootUser 加载root用户

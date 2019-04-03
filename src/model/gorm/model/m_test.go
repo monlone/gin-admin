@@ -4,8 +4,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/service/gormplus"
 	"github.com/spf13/viper"
 )
 

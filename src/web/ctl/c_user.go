@@ -3,11 +3,11 @@ package ctl
 import (
 	"strings"
 
-	"github.com/LyricTian/gin-admin/src/bll"
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/util"
-	"github.com/LyricTian/gin-admin/src/web/context"
+	"github.com/goodcorn/src/bll"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/util"
+	"github.com/goodcorn/src/web/context"
 )
 
 // User 用户管理

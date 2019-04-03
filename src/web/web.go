@@ -3,9 +3,9 @@ package web
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/inject"
-	"github.com/LyricTian/gin-admin/src/web/middleware"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/inject"
+	"github.com/goodcorn/src/web/middleware"
 	"github.com/gin-gonic/gin"
 )
 

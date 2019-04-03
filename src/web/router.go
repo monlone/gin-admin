@@ -3,11 +3,11 @@ package web
 import (
 	"sync"
 
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/inject"
-	"github.com/LyricTian/gin-admin/src/web/context"
-	"github.com/LyricTian/gin-admin/src/web/middleware"
 	"github.com/gin-gonic/gin"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/inject"
+	"github.com/goodcorn/src/web/context"
+	"github.com/goodcorn/src/web/middleware"
 )
 
 var ctxPool = &sync.Pool{
@@ -107,5 +107,8 @@ func registerAPIRouter(app *gin.Engine, obj *inject.Object) {
 		v1.DELETE("/users/:id", wrapCtx(c.UserCtl.Delete))
 		v1.PATCH("/users/:id/enable", wrapCtx(c.UserCtl.Enable))
 		v1.PATCH("/users/:id/disable", wrapCtx(c.UserCtl.Disable))
+
+		// 注册/api/v1/merchants
+		v1.GET("/merchants", wrapCtx(c.MerchantCtl.Query))
 	}
 }

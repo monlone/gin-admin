@@ -11,8 +11,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/LyricTian/gin-admin/src/inject"
-	"github.com/LyricTian/gin-admin/src/web"
+	"github.com/goodcorn/src/inject"
+	"github.com/goodcorn/src/web"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 )

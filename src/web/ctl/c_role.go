@@ -1,10 +1,10 @@
 package ctl
 
 import (
-	"github.com/LyricTian/gin-admin/src/bll"
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/web/context"
+	"github.com/goodcorn/src/bll"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/web/context"
 )
 
 // Role 角色管理

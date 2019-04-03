@@ -6,17 +6,17 @@ import (
 	"net/http"
 	"strings"
 
-	gcontext "github.com/LyricTian/gin-admin/src/context"
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/logger"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/util"
+	gcontext "github.com/goodcorn/src/context"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/logger"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/util"
 	"github.com/gin-gonic/gin"
 )
 
 // 定义上下文中的键
 const (
-	prefix = "github.com/LyricTian/gin-admin"
+	prefix = "github.com/goodcorn"
 	// UserIDKey 存储上下文中的键(用户ID)
 	UserIDKey = prefix + "/user_id"
 	// TraceIDKey 存储上下文中的键(跟踪ID)

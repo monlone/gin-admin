@@ -3,16 +3,16 @@ package inject
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/src/auth"
-	"github.com/LyricTian/gin-admin/src/config"
-	mgorm "github.com/LyricTian/gin-admin/src/model/gorm"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
-	"github.com/LyricTian/gin-admin/src/web/ctl"
 	"github.com/casbin/casbin"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/facebookgo/inject"
 	"github.com/go-redis/redis"
 	"github.com/go-redis/redis_rate"
+	"github.com/goodcorn/src/auth"
+	"github.com/goodcorn/src/config"
+	mgorm "github.com/goodcorn/src/model/gorm"
+	"github.com/goodcorn/src/service/gormplus"
+	"github.com/goodcorn/src/web/ctl"
 	"golang.org/x/time/rate"
 )
 

@@ -3,10 +3,10 @@ package bll
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/model"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/util"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/model"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/util"
 	"github.com/casbin/casbin"
 )
 

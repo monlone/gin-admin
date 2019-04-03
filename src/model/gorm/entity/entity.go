@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	gcontext "github.com/LyricTian/gin-admin/src/context"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
-	"github.com/LyricTian/gin-admin/src/util"
+	gcontext "github.com/goodcorn/src/context"
+	"github.com/goodcorn/src/service/gormplus"
+	"github.com/goodcorn/src/util"
 )
 
 // 表名前缀

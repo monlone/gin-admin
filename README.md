@@ -33,7 +33,7 @@
 ### 获取代码
 
 ```
-go get -v github.com/LyricTian/gin-admin/...
+go get -v github.com/goodcorn/...
 ```
 
 ### 运行
@@ -45,7 +45,7 @@ go get -v github.com/LyricTian/gin-admin/...
 > 也可以使用脚本运行(详情可查看`Makefile`)：`make start-dev-server`
 
 ```bash
-cd $GOPATH/src/github.com/LyricTian/gin-admin
+cd $GOPATH/src/github.com/goodcorn
 go build -o ./cmd/server/server ./cmd/server
 ./cmd/server/server -c ./config/config.toml -m ./config/model.conf -swagger ./src/web/swagger
 ```
@@ -60,7 +60,7 @@ go build -o ./cmd/server/server ./cmd/server
 > 也可以使用脚本运行(详情可查看`Makefile`)：`make start-dev-web`
 
 ```bash
-cd $GOPATH/src/github.com/LyricTian/gin-admin/web
+cd $GOPATH/src/github.com/goodcorn/web
 npm install
 npm start
 ```
@@ -139,9 +139,9 @@ swaggo -s ./swagger.go -p ../ -o ./swagger
 
 ![](./screenshot_wechat.jpeg)
 
-[reportcard-url]: https://goreportcard.com/report/github.com/LyricTian/gin-admin
-[reportcard-image]: https://goreportcard.com/badge/github.com/LyricTian/gin-admin
-[godoc-url]: https://godoc.org/github.com/LyricTian/gin-admin
-[godoc-image]: https://godoc.org/github.com/LyricTian/gin-admin?status.svg
+[reportcard-url]: https://goreportcard.com/report/github.com/goodcorn
+[reportcard-image]: https://goreportcard.com/badge/github.com/goodcorn
+[godoc-url]: https://godoc.org/github.com/goodcorn
+[godoc-image]: https://godoc.org/github.com/goodcorn?status.svg
 [license-url]: http://opensource.org/licenses/MIT
 [license-image]: https://img.shields.io/npm/l/express.svg

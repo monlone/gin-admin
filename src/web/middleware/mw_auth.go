@@ -1,11 +1,11 @@
 package middleware
 
 import (
-	"github.com/LyricTian/gin-admin/src/auth"
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/logger"
-	"github.com/LyricTian/gin-admin/src/web/context"
+	"github.com/goodcorn/src/auth"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/logger"
+	"github.com/goodcorn/src/web/context"
 	"github.com/gin-gonic/gin"
 )
 

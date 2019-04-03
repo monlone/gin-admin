@@ -3,17 +3,18 @@ package ctl
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/util"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/util"
 )
 
 // Common 控制器公共模块
 type Common struct {
-	MenuCtl  *Menu  `inject:""`
-	RoleCtl  *Role  `inject:""`
-	UserCtl  *User  `inject:""`
-	LoginCtl *Login `inject:""`
-	DemoCtl  *Demo  `inject:""`
+	MenuCtl     *Menu     `inject:""`
+	MerchantCtl *Merchant `inject:""`
+	RoleCtl     *Role     `inject:""`
+	UserCtl     *User     `inject:""`
+	LoginCtl    *Login    `inject:""`
+	DemoCtl     *Demo     `inject:""`
 }
 
 // LoadCasbinPolicyData 加载casbin策略数据，包括角色权限数据、用户角色数据

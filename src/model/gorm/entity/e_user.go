@@ -3,8 +3,8 @@ package entity
 import (
 	"context"
 
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/service/gormplus"
 )
 
 // GetUserDB 获取用户存储

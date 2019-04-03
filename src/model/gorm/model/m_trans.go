@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/logger"
-	"github.com/LyricTian/gin-admin/src/service/gormplus"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/logger"
+	"github.com/goodcorn/src/service/gormplus"
 )
 
 // Trans 事务管理

@@ -1,8 +1,8 @@
 package middleware
 
 import (
-	"github.com/LyricTian/gin-admin/src/util"
-	"github.com/LyricTian/gin-admin/src/web/context"
+	"github.com/goodcorn/src/util"
+	"github.com/goodcorn/src/web/context"
 	"github.com/gin-gonic/gin"
 )
 

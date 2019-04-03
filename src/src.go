@@ -8,10 +8,10 @@ import (
 
 	"github.com/LyricTian/captcha"
 	"github.com/LyricTian/captcha/store"
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/inject"
-	"github.com/LyricTian/gin-admin/src/logger"
-	"github.com/LyricTian/gin-admin/src/web"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/inject"
+	"github.com/goodcorn/src/logger"
+	"github.com/goodcorn/src/web"
 	"github.com/google/gops/agent"
 )
 

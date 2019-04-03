@@ -4,13 +4,13 @@ import (
 	"fmt"
 
 	"github.com/LyricTian/captcha"
-	"github.com/LyricTian/gin-admin/src/auth"
-	"github.com/LyricTian/gin-admin/src/bll"
-	"github.com/LyricTian/gin-admin/src/config"
-	"github.com/LyricTian/gin-admin/src/errors"
-	"github.com/LyricTian/gin-admin/src/logger"
-	"github.com/LyricTian/gin-admin/src/schema"
-	"github.com/LyricTian/gin-admin/src/web/context"
+	"github.com/goodcorn/src/auth"
+	"github.com/goodcorn/src/bll"
+	"github.com/goodcorn/src/config"
+	"github.com/goodcorn/src/errors"
+	"github.com/goodcorn/src/logger"
+	"github.com/goodcorn/src/schema"
+	"github.com/goodcorn/src/web/context"
 )
 
 // Login 登录管理
