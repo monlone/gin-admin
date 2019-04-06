@@ -41,13 +41,17 @@ go get -v github.com/goodcorn/...
 > root 用户的用户名及密码在配置文件(`config/config.toml`)中，默认为：root/abc-123
 
 #### 编译并运行服务
-
+######方法一：
 > 也可以使用脚本运行(详情可查看`Makefile`)：`make start-dev-server`
 
 ```bash
 cd $GOPATH/src/github.com/goodcorn
 go build -o ./cmd/server/server ./cmd/server
 ./cmd/server/server -c ./config/config.toml -m ./config/model.conf -swagger ./src/web/swagger
+```
+方法二：
+```
+go run ./cmd/server/server.go  -c ./config/config.toml -m ./config/model.conf
 ```
 
 #### 温馨提醒
