@@ -56,13 +56,13 @@ func (a *Merchant) Create(ctx context.Context, item schema.Merchant) (*schema.Me
 		return nil, err
 	}
 
-	item.MerchantId = util.MustUUID()
+	item.RecordID = util.MustUUID()
 	item.Creator = a.CommonBll.GetUserID(ctx)
 	err = a.MerchantModel.Create(ctx, item)
 	if err != nil {
 		return nil, err
 	}
-	return a.Get(ctx, item.MerchantId)
+	return a.Get(ctx, item.RecordID)
 }
 
 // Update 更新数据

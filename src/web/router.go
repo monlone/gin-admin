@@ -110,5 +110,11 @@ func registerAPIRouter(app *gin.Engine, obj *inject.Object) {
 
 		// 注册/api/v1/merchants
 		v1.GET("/merchants", wrapCtx(c.MerchantCtl.Query))
+		v1.GET("/merchants/:id", wrapCtx(c.MerchantCtl.Get))
+		v1.POST("/merchants", wrapCtx(c.MerchantCtl.Create))
+		v1.PUT("/merchants/:id", wrapCtx(c.MerchantCtl.Update))
+		v1.DELETE("/merchants/:id", wrapCtx(c.MerchantCtl.Delete))
+		v1.PATCH("/merchants/:id/enable", wrapCtx(c.MerchantCtl.Enable))
+		v1.PATCH("/merchants/:id/disable", wrapCtx(c.MerchantCtl.Disable))
 	}
 }

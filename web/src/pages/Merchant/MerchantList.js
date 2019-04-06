@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
-import { Row, Col, Card, Form, Input, Button, Table, Modal, Badge, Select } from 'antd';
-import PageHeaderLayout from '@/layouts/PageHeaderLayout';
+import { Badge, Button, Card, Col, Form, Input, Modal, Row, Select, Table } from 'antd';
+import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import PButton from '@/components/PermButton';
-import { formatDate } from '@/utils/utils';
 import MerchantCard from './MerchantCard';
+import { formatDate } from '../../utils/utils';
 
 import styles from './MerchantList.less';
 
@@ -78,7 +78,7 @@ class MerchantList extends PureComponent {
 
   onItemDelClick = item => {
     Modal.confirm({
-      title: `确定删除【基础示例数据：${item.name}】？`,
+      title: `确定删除【商户数据：${item.name}】？`,
       okText: '确认',
       okType: 'danger',
       cancelText: '取消',
@@ -125,7 +125,9 @@ class MerchantList extends PureComponent {
       }
       this.dispatch({
         type: 'merchant/fetch',
-        search: values,
+        search: {
+          ...values,
+        },
         pagination: {},
       });
       this.clearSelectRows();
@@ -219,7 +221,7 @@ class MerchantList extends PureComponent {
       },
       {
         title: '备注',
-        dataIndex: 'memo',
+        dataIndex: 'description',
       },
       {
         title: '状态',
@@ -245,10 +247,10 @@ class MerchantList extends PureComponent {
       ...pagination,
     };
 
-    const breadcrumbList = [{ title: '演示用例' }, { title: '基础示例', href: '/merchant/list' }];
+    const breadcrumbList = [{ title: '商户管理' }, { title: '商户列表', href: '/merchant/list' }];
 
     return (
-      <PageHeaderLayout title="基础示例" breadcrumbList={breadcrumbList}>
+      <PageHeaderLayout title="商户管理" breadcrumbList={breadcrumbList}>
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderSearchForm()}</div>

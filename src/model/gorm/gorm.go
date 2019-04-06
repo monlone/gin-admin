@@ -5,13 +5,13 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/facebookgo/inject"
 	"github.com/goodcorn/src/config"
 	"github.com/goodcorn/src/errors"
 	"github.com/goodcorn/src/model"
 	"github.com/goodcorn/src/model/gorm/entity"
 	gormmodel "github.com/goodcorn/src/model/gorm/model"
 	"github.com/goodcorn/src/service/gormplus"
-	"github.com/facebookgo/inject"
 )
 
 // Init 初始化gorm存储层
@@ -31,6 +31,7 @@ func Init(ctx context.Context, g *inject.Graph) (*gormplus.DB, error) {
 	g.Provide(&inject.Object{Value: model.IRole(new(gormmodel.Role).Init(db)), Name: "IRole"})
 	g.Provide(&inject.Object{Value: model.IUser(new(gormmodel.User).Init(db)), Name: "IUser"})
 	g.Provide(&inject.Object{Value: model.IDemo(new(gormmodel.Demo).Init(db)), Name: "IDemo"})
+	g.Provide(&inject.Object{Value: model.IMerchant(new(gormmodel.Merchant).Init(db)), Name: "IMerchant"})
 	return db, nil
 }
 

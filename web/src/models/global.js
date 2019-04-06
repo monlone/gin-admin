@@ -17,6 +17,7 @@ export default {
     },
     menuPaths: {},
     menus: [],
+    merchant: [],
   },
 
   effects: {
@@ -61,6 +62,7 @@ export default {
       });
 
       const menuPaths = {};
+
       function findPath(data) {
         for (let i = 0; i < data.length; i += 1) {
           if (data[i].router !== '') {
@@ -71,6 +73,7 @@ export default {
           }
         }
       }
+
       findPath(menuData);
 
       yield put({

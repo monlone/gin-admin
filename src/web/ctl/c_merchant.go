@@ -8,9 +8,9 @@ import (
 	"github.com/goodcorn/src/web/context"
 )
 
-// Merchant demo
+// Merchant merchant
 // @Name Merchant
-// @Description demo接口
+// @Description merchant接口
 type Merchant struct {
 	MerchantBll *bll.Merchant `inject:""`
 }
@@ -37,7 +37,7 @@ func (a *Merchant) Query(ctx *context.Context) {
 // @Failure 400 schema.HTTPError "{error:{code:0,message:未知的查询类型}}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router GET /api/v1/demos?q=page
+// @Router GET /api/v1/merchants?q=page
 func (a *Merchant) QueryPage(ctx *context.Context) {
 	var params schema.MerchantQueryParam
 	//params.LikeCode = ctx.Query("code")
@@ -60,7 +60,7 @@ func (a *Merchant) QueryPage(ctx *context.Context) {
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 404 schema.HTTPError "{error:{code:0,message:资源不存在}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router GET /api/v1/demos/{id}
+// @Router GET /api/v1/merchants/{id}
 func (a *Merchant) Get(ctx *context.Context) {
 	item, err := a.MerchantBll.Get(ctx.GetContext(), ctx.Param("id"))
 	if err != nil {
@@ -78,7 +78,7 @@ func (a *Merchant) Get(ctx *context.Context) {
 // @Failure 400 schema.HTTPError "{error:{code:0,message:无效的请求参数}}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router POST /api/v1/demos
+// @Router POST /api/v1/merchants
 func (a *Merchant) Create(ctx *context.Context) {
 	var item schema.Merchant
 	if err := ctx.ParseJSON(&item); err != nil {
@@ -103,7 +103,7 @@ func (a *Merchant) Create(ctx *context.Context) {
 // @Failure 400 schema.HTTPError "{error:{code:0,message:无效的请求参数}}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router PUT /api/v1/demos/{id}
+// @Router PUT /api/v1/merchants/{id}
 func (a *Merchant) Update(ctx *context.Context) {
 	var item schema.Merchant
 	if err := ctx.ParseJSON(&item); err != nil {
@@ -126,7 +126,7 @@ func (a *Merchant) Update(ctx *context.Context) {
 // @Success 200 schema.HTTPStatus "{status:OK}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router DELETE /api/v1/demos/{id}
+// @Router DELETE /api/v1/merchants/{id}
 func (a *Merchant) Delete(ctx *context.Context) {
 	err := a.MerchantBll.Delete(ctx.GetContext(), ctx.Param("id"))
 	if err != nil {
@@ -143,7 +143,7 @@ func (a *Merchant) Delete(ctx *context.Context) {
 // @Success 200 schema.HTTPStatus "{status:OK}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router PATCH /api/v1/demos/{id}/enable
+// @Router PATCH /api/v1/merchants/{id}/enable
 func (a *Merchant) Enable(ctx *context.Context) {
 	err := a.MerchantBll.UpdateStatus(ctx.GetContext(), ctx.Param("id"), 1)
 	if err != nil {
@@ -160,7 +160,7 @@ func (a *Merchant) Enable(ctx *context.Context) {
 // @Success 200 schema.HTTPStatus "{status:OK}"
 // @Failure 401 schema.HTTPError "{error:{code:0,message:未授权}}"
 // @Failure 500 schema.HTTPError "{error:{code:0,message:服务器错误}}"
-// @Router PATCH /api/v1/demos/{id}/disable
+// @Router PATCH /api/v1/merchants/{id}/disable
 func (a *Merchant) Disable(ctx *context.Context) {
 	err := a.MerchantBll.UpdateStatus(ctx.GetContext(), ctx.Param("id"), 2)
 	if err != nil {

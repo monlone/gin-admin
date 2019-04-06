@@ -22,6 +22,10 @@ export default [
         routes: [{ path: '/merchant/list', component: './Merchant/MerchantList' }],
       },
       {
+        path: '/shop',
+        routes: [{ path: '/shop/list', component: './Shop/ShopList' }],
+      },
+      {
         path: '/system',
         routes: [
           { path: '/system/menu', component: './Menu/MenuList' },

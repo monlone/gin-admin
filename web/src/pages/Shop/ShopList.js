@@ -1,20 +1,19 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
-import { Badge, Button, Card, Col, Form, Input, Modal, Radio, Row, Table } from 'antd';
+import { Badge, Button, Card, Col, Form, Input, Modal, Row, Select, Table } from 'antd';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import PButton from '@/components/PermButton';
-import UserCard from './UserCard';
-import RoleSelect from './RoleSelect';
+import ShopCard from './ShopCard';
 import { formatDate } from '../../utils/utils';
 
-import styles from './UserList.less';
+import styles from './ShopList.less';
 
 @connect(state => ({
-  loading: state.loading.models.user,
-  user: state.user,
+  loading: state.loading.models.shop,
+  shop: state.shop,
 }))
 @Form.create()
-class UserList extends PureComponent {
+class ShopList extends PureComponent {
   state = {
     selectedRowKeys: [],
     selectedRows: [],
@@ -22,7 +21,7 @@ class UserList extends PureComponent {
 
   componentDidMount() {
     this.dispatch({
-      type: 'user/fetch',
+      type: 'shop/fetch',
       search: {},
       pagination: {},
     });
@@ -30,21 +29,21 @@ class UserList extends PureComponent {
 
   onItemDisableClick = item => {
     this.dispatch({
-      type: 'user/changeStatus',
+      type: 'shop/changeStatus',
       payload: { record_id: item.record_id, status: 2 },
     });
   };
 
   onItemEnableClick = item => {
     this.dispatch({
-      type: 'user/changeStatus',
+      type: 'shop/changeStatus',
       payload: { record_id: item.record_id, status: 1 },
     });
   };
 
   onItemEditClick = item => {
     this.dispatch({
-      type: 'user/loadForm',
+      type: 'shop/loadForm',
       payload: {
         type: 'E',
         id: item.record_id,
@@ -54,7 +53,7 @@ class UserList extends PureComponent {
 
   onAddClick = () => {
     this.dispatch({
-      type: 'user/loadForm',
+      type: 'shop/loadForm',
       payload: {
         type: 'A',
       },
@@ -63,7 +62,7 @@ class UserList extends PureComponent {
 
   onDelOKClick(id) {
     this.dispatch({
-      type: 'user/del',
+      type: 'shop/del',
       payload: { record_id: id },
     });
     this.clearSelectRows();
@@ -79,7 +78,7 @@ class UserList extends PureComponent {
 
   onItemDelClick = item => {
     Modal.confirm({
-      title: `确定删除【用户数据：${item.user_name}】？`,
+      title: `确定删除【商户数据：${item.name}】？`,
       okText: '确认',
       okType: 'danger',
       cancelText: '取消',
@@ -96,7 +95,7 @@ class UserList extends PureComponent {
 
   onTableChange = pagination => {
     this.dispatch({
-      type: 'user/fetch',
+      type: 'shop/fetch',
       pagination: {
         current: pagination.current,
         pageSize: pagination.pageSize,
@@ -109,7 +108,7 @@ class UserList extends PureComponent {
     const { form } = this.props;
     form.resetFields();
     this.dispatch({
-      type: 'user/fetch',
+      type: 'shop/fetch',
       search: {},
       pagination: {},
     });
@@ -124,16 +123,10 @@ class UserList extends PureComponent {
       if (err) {
         return;
       }
-
-      let roleIDs = '';
-      if (values.role_ids) {
-        roleIDs = values.role_ids.map(v => v.role_id).join(',');
-      }
       this.dispatch({
-        type: 'user/fetch',
+        type: 'shop/fetch',
         search: {
           ...values,
-          role_ids: roleIDs,
         },
         pagination: {},
       });
@@ -143,7 +136,7 @@ class UserList extends PureComponent {
 
   onDataFormSubmit = data => {
     this.dispatch({
-      type: 'user/submit',
+      type: 'shop/submit',
       payload: data,
     });
     this.clearSelectRows();
@@ -151,7 +144,7 @@ class UserList extends PureComponent {
 
   onDataFormCancel = () => {
     this.dispatch({
-      type: 'user/changeFormVisible',
+      type: 'shop/changeFormVisible',
       payload: false,
     });
   };
@@ -162,7 +155,7 @@ class UserList extends PureComponent {
   };
 
   renderDataForm() {
-    return <UserCard onCancel={this.onDataFormCancel} onSubmit={this.onDataFormSubmit} />;
+    return <ShopCard onCancel={this.onDataFormCancel} onSubmit={this.onDataFormSubmit} />;
   }
 
   renderSearchForm() {
@@ -170,47 +163,39 @@ class UserList extends PureComponent {
       form: { getFieldDecorator },
     } = this.props;
     return (
-      <Form onSubmit={this.onSearchFormSubmit}>
+      <Form onSubmit={this.onSearchFormSubmit} layout="inline">
         <Row gutter={16}>
-          <Col span={8}>
-            <Form.Item label="用户名">
-              {getFieldDecorator('user_name')(<Input placeholder="请输入" />)}
+          <Col md={8} sm={24}>
+            <Form.Item label="编号">
+              {getFieldDecorator('code')(<Input placeholder="请输入" />)}
             </Form.Item>
           </Col>
-          <Col span={8}>
-            <Form.Item label="真实姓名">
-              {getFieldDecorator('real_name')(<Input placeholder="请输入" />)}
+          <Col md={8} sm={24}>
+            <Form.Item label="名称">
+              {getFieldDecorator('name')(<Input placeholder="请输入" />)}
             </Form.Item>
           </Col>
-          <Col span={8}>
-            <Form.Item label="所属角色">{getFieldDecorator('role_ids')(<RoleSelect />)}</Form.Item>
-          </Col>
-        </Row>
-        <Row gutter={16}>
-          <Col span={8}>
-            <Form.Item label="用户状态">
-              {getFieldDecorator('status', { initialValue: '0' })(
-                <Radio.Group>
-                  <Radio value="0">全部</Radio>
-                  <Radio value="1">正常</Radio>
-                  <Radio value="2">停用</Radio>
-                </Radio.Group>
+          <Col md={8} sm={24}>
+            <Form.Item label="状态">
+              {getFieldDecorator('status')(
+                <Select placeholder="请选择" style={{ width: '100%' }}>
+                  <Select.Option value="1">正常</Select.Option>
+                  <Select.Option value="2">停用</Select.Option>
+                </Select>
               )}
             </Form.Item>
           </Col>
-          <Col span={8}>
-            <div style={{ overflow: 'hidden' }}>
-              <span style={{ marginBottom: 24 }}>
-                <Button type="primary" htmlType="submit">
-                  查询
-                </Button>
-                <Button style={{ marginLeft: 8 }} onClick={this.onResetFormClick}>
-                  重置
-                </Button>
-              </span>
-            </div>
-          </Col>
         </Row>
+        <div style={{ overflow: 'hidden' }}>
+          <span style={{ float: 'right', marginBottom: 24 }}>
+            <Button type="primary" htmlType="submit">
+              查询
+            </Button>
+            <Button style={{ marginLeft: 8 }} onClick={this.onResetFormClick}>
+              重置
+            </Button>
+          </span>
+        </div>
       </Form>
     );
   }
@@ -218,37 +203,28 @@ class UserList extends PureComponent {
   render() {
     const {
       loading,
-      user: {
+      shop: {
         data: { list, pagination },
       },
     } = this.props;
 
     const { selectedRows, selectedRowKeys } = this.state;
+
     const columns = [
       {
-        title: '用户名',
-        dataIndex: 'user_name',
+        title: '编号',
+        dataIndex: 'code',
       },
       {
-        title: '真实姓名',
-        dataIndex: 'real_name',
+        title: '名称',
+        dataIndex: 'name',
       },
       {
-        title: '角色名称',
-        dataIndex: 'roles',
-        render: val => {
-          if (!val || val.length === 0) {
-            return <span>-</span>;
-          }
-          const names = [];
-          for (let i = 0; i < val.length; i += 1) {
-            names.push(val[i].name);
-          }
-          return <span>{names.join(' | ')}</span>;
-        },
+        title: '备注',
+        dataIndex: 'description',
       },
       {
-        title: '用户状态',
+        title: '状态',
         dataIndex: 'status',
         render: val => {
           if (val === 1) {
@@ -256,14 +232,6 @@ class UserList extends PureComponent {
           }
           return <Badge status="error" text="停用" />;
         },
-      },
-      {
-        title: '邮箱',
-        dataIndex: 'email',
-      },
-      {
-        title: '手机号',
-        dataIndex: 'phone',
       },
       {
         title: '创建时间',
@@ -279,8 +247,10 @@ class UserList extends PureComponent {
       ...pagination,
     };
 
+    const breadcrumbList = [{ title: '商户管理' }, { title: '商户列表', href: '/shop/list' }];
+
     return (
-      <PageHeaderLayout title="用户管理">
+      <PageHeaderLayout title="商户管理" breadcrumbList={breadcrumbList}>
         <Card bordered={false}>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>{this.renderSearchForm()}</div>
@@ -352,4 +322,4 @@ class UserList extends PureComponent {
   }
 }
 
-export default UserList;
+export default ShopList;

@@ -19,3 +19,4 @@
 /src/model/gorm/model/data
 .idea/*
 .idea
+web/dist/*

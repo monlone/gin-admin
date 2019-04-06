@@ -151,7 +151,7 @@ max_open_conns = 150
 # 设置空闲连接池中的最大连接数
 max_idle_conns = 50
 # 数据库表名前缀
-table_prefix = "g_"
+table_prefix = ""
 
 # mysql数据库配置
 [mysql]
@@ -179,7 +179,7 @@ user = "root"
 # 密码
 password = "123456"
 # 数据库
-db_name = "gadmin"
+db_name = "goodcorn"
 
 # sqlite数据库配置
 [sqlite3]

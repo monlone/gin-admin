@@ -1,8 +1,8 @@
 import { message } from 'antd';
-import * as merchantService from '@/services/merchant';
+import * as shopService from '@/services/shop';
 
 export default {
-  namespace: 'merchant',
+  namespace: 'shop',
   state: {
     search: {},
     pagination: {},
@@ -29,7 +29,7 @@ export default {
           payload: search,
         });
       } else {
-        const s = yield select(state => state.merchant.search);
+        const s = yield select(state => state.shop.search);
         if (s) {
           params = { ...params, ...s };
         }
@@ -42,13 +42,13 @@ export default {
           payload: pagination,
         });
       } else {
-        const p = yield select(state => state.merchant.pagination);
+        const p = yield select(state => state.shop.pagination);
         if (p) {
           params = { ...params, ...p };
         }
       }
 
-      const response = yield call(merchantService.query, params);
+      const response = yield call(shopService.query, params);
       yield put({
         type: 'saveData',
         payload: response,
@@ -97,7 +97,7 @@ export default {
       }
     },
     *fetchForm({ payload }, { call, put }) {
-      const response = yield call(merchantService.get, payload);
+      const response = yield call(shopService.get, payload);
       yield put({
         type: 'saveFormData',
         payload: response,
@@ -110,13 +110,13 @@ export default {
       });
 
       const params = { ...payload };
-      const formType = yield select(state => state.merchant.formType);
+      const formType = yield select(state => state.shop.formType);
       let response;
       if (formType === 'E') {
-        params.record_id = yield select(state => state.merchant.formID);
-        response = yield call(merchantService.update, params);
+        params.record_id = yield select(state => state.shop.formID);
+        response = yield call(shopService.update, params);
       } else {
-        response = yield call(merchantService.create, params);
+        response = yield call(shopService.create, params);
       }
 
       yield put({
@@ -136,7 +136,7 @@ export default {
       }
     },
     *del({ payload }, { call, put }) {
-      const response = yield call(merchantService.del, payload);
+      const response = yield call(shopService.del, payload);
       if (response.status === 'OK') {
         message.success('删除成功');
         yield put({ type: 'fetch' });
@@ -145,9 +145,9 @@ export default {
     *changeStatus({ payload }, { call, put, select }) {
       let response;
       if (payload.status === 1) {
-        response = yield call(merchantService.enable, payload);
+        response = yield call(shopService.enable, payload);
       } else {
-        response = yield call(merchantService.disable, payload);
+        response = yield call(shopService.disable, payload);
       }
 
       if (response.status === 'OK') {
@@ -156,7 +156,7 @@ export default {
           msg = '停用成功';
         }
         message.success(msg);
-        const data = yield select(state => state.merchant.data);
+        const data = yield select(state => state.shop.data);
         const newData = { list: [], pagination: data.pagination };
 
         for (let i = 0; i < data.list.length; i += 1) {
