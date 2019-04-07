@@ -79,9 +79,19 @@ class MerchantCard extends PureComponent {
             })(<Input placeholder="请输入名称" />)}
           </Form.Item>
           <Form.Item {...formItemLayout} label="备注">
-            {getFieldDecorator('memo', {
-              initialValue: formData.memo,
+            {getFieldDecorator('description', {
+              initialValue: formData.description,
             })(<Input.TextArea rows={2} placeholder="请输入备注" />)}
+          </Form.Item>
+          <Form.Item {...formItemLayout} label="地址">
+            {getFieldDecorator('address', {
+              initialValue: formData.address,
+            })(<Input.TextArea rows={2} placeholder="请输入地址" />)}
+          </Form.Item>
+          <Form.Item {...formItemLayout} label="地址描述">
+            {getFieldDecorator('address_description', {
+              initialValue: formData.address_description,
+            })(<Input.TextArea rows={2} placeholder="请输入地址描述" />)}
           </Form.Item>
           <Form.Item {...formItemLayout} label="状态">
             {getFieldDecorator('status', {

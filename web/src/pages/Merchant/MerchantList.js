@@ -220,6 +220,14 @@ class MerchantList extends PureComponent {
         dataIndex: 'name',
       },
       {
+        title: '地址',
+        dataIndex: 'address',
+      },
+      {
+        title: '地址描述',
+        dataIndex: 'address_description',
+      },
+      {
         title: '备注',
         dataIndex: 'description',
       },

@@ -1,11 +1,12 @@
 package middleware
 
 import (
+	"fmt"
+	"github.com/casbin/casbin"
+	"github.com/gin-gonic/gin"
 	"github.com/goodcorn/src/errors"
 	"github.com/goodcorn/src/logger"
 	"github.com/goodcorn/src/web/context"
-	"github.com/casbin/casbin"
-	"github.com/gin-gonic/gin"
 )
 
 // CasbinMiddleware casbin中间件
@@ -19,6 +20,7 @@ func CasbinMiddleware(enforcer *casbin.Enforcer, skipper ...SkipperFunc) gin.Han
 		ctx := context.New(c)
 		p := c.Request.URL.Path
 		m := c.Request.Method
+		fmt.Println("ctx.GetUserID():", ctx.GetUserID(), "p:", p, "m:", m)
 		if b, err := enforcer.EnforceSafe(ctx.GetUserID(), p, m); err != nil {
 			logger.StartSpan(ctx.GetContext(), "casbin中间件", "CasbinMiddleware").
 				Errorf(err.Error())
