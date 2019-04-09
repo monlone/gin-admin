@@ -19,7 +19,10 @@ export default [
       },
       {
         path: '/merchant',
-        routes: [{ path: '/merchant/list', component: './Merchant/MerchantList' }],
+        routes: [
+          { path: '/merchant/list', component: './Merchant/MerchantList' },
+          { path: '/merchant/detail', component: './Merchant/MerchantDetail' },
+        ],
       },
       {
         path: '/shop',

@@ -126,6 +126,51 @@ swaggo -s ./swagger.go -p ../ -o ./swagger
     - utils：工具函数
 ```
 
+要是配合nginx使用，这是事例：
+```
+upstream goodcorn_api {
+  server 10.1.118.76:10088 max_fails=5 fail_timeout=10; #这个ip一定不要用127.0.0.1,毕竟我的go代码不跑在容器里
+  keepalive 20000;
+}
+
+upstream web {
+  server 10.1.118.76:8000 max_fails=5 fail_timeout=10; #这个ip一定不要用127.0.0.1,毕竟我的go代码不跑在容器里
+  keepalive 20000;
+}
+
+server {
+    listen 80;
+    #listen [::]:80 default_server ipv6only=on;
+
+    # For https
+    # listen 443 ssl default_server;
+    # listen [::]:443 ssl default_server ipv6only=on;
+    # ssl_certificate /etc/nginx/ssl/default.crt;
+    # ssl_certificate_key /etc/nginx/ssl/default.key;
+
+    server_name goodcorn.com;
+    root /var/www/src/github.com/goodcorn/web/dist;
+    index index.php index.html index.htm;
+
+
+    location /api {
+        proxy_pass http://goodcorn_api;
+    }
+
+    location / {
+        proxy_pass http://web;
+    }
+
+    #location / {
+    #    try_files $uri $uri/ /index.html;  #npm run build以后，就用这个。
+    #}
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
 ## 感谢以下框架的开源
 
 - [Gin] - [https://gin-gonic.com/](https://gin-gonic.com/)

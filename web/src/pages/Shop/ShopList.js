@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Badge, Button, Card, Col, Form, Input, Modal, Row, Select, Table } from 'antd';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
-import PButton from '@/components/PermButton';
+import PButton from '../../components/PermButton';
 import ShopCard from './ShopCard';
 import { formatDate } from '../../utils/utils';
 
